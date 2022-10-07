@@ -230,12 +230,17 @@ function infoText(title) {
 }
 
 clearning.addEventListener('click', () => {
-    localStorage.clear();
-    point = 1;
-    listBlock.innerHTML = '';
-    inputBlock.value = '';
-    infoText('Список очищено');
-    clearning.style.display = 'none';
+    document.querySelectorAll('.block__item').forEach( item => {
+        item.style.margin = '0px 150% 5px -150%';
+    });
+    setTimeout( () => {
+        localStorage.clear();
+        point = 1;
+        listBlock.innerHTML = '';
+        inputBlock.value = '';
+        infoText('Список очищено');
+        clearning.style.display = 'none';
+    }, 600);
 });
 
 function addedNewItem() {
